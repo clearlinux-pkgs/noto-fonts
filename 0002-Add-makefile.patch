@@ -1,0 +1,46 @@
+From 8e354d82bc1ada3c98e134996302bea8383fae35 Mon Sep 17 00:00:00 2001
+From: "Simental Magana, Marcos" <marcos.simental.magana@intel.com>
+Date: Wed, 13 Feb 2019 17:51:19 -0600
+Subject: [PATCH 2/2] Add makefile
+
+---
+ Makefile | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+ create mode 100644 Makefile
+
+diff --git a/Makefile b/Makefile
+new file mode 100644
+index 0000000..bef1bfe
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,27 @@
++FONTNAME = noto
++PREFIX ?= /usr
++FONTDIR ?= $(DESTDIR)$(PREFIX)/share/fonts
++FONTCONFIGDIR ?= $(DESTDIR)$(PREFIX)/share/fontconfig/conf.avail
++
++SUBDIRS = alpha hinted unhinted
++
++.PHONY: build
++build:
++	@echo "nothing to do"
++
++.PHONY: install
++install:
++	mkdir -p $(FONTDIR)/$(FONTNAME) $(FONTCONFIGDIR)
++	for d in $(SUBDIRS); do \
++	    install -m 0644 "$$d"/*.ttf $(FONTDIR)/$(FONTNAME) ; \
++	done
++	install -m 0644 ./*.conf $(FONTCONFIGDIR)
++
++.PHONY: uninstall
++uninstall:
++	rm -f $(FONTDIR)/$(FONTNAME)/{Noto,Arimo,Cousine,Tinos}*.tt[fc]
++	rm -f $(FONTCONFIGDIR)/*-noto-*.conf
++
++.PHONY: clean
++clean:
++	@echo "nothing to do"
+-- 
+2.20.1
+

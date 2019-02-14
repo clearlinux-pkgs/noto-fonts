@@ -1,0 +1,83 @@
+From 80f8cc83ae2d29a1d483c66108a43572bf4b359b Mon Sep 17 00:00:00 2001
+From: "Simental Magana, Marcos" <marcos.simental.magana@intel.com>
+Date: Wed, 13 Feb 2019 17:51:05 -0600
+Subject: [PATCH 1/2] add noto fontconfig files
+
+---
+ 66-noto-mono.conf  | 16 ++++++++++++++++
+ 66-noto-sans.conf  | 16 ++++++++++++++++
+ 66-noto-serif.conf | 16 ++++++++++++++++
+ 3 files changed, 48 insertions(+)
+ create mode 100644 66-noto-mono.conf
+ create mode 100644 66-noto-sans.conf
+ create mode 100644 66-noto-serif.conf
+
+diff --git a/66-noto-mono.conf b/66-noto-mono.conf
+new file mode 100644
+index 0000000..21d6c36
+--- /dev/null
++++ b/66-noto-mono.conf
+@@ -0,0 +1,16 @@
++<?xml version="1.0"?>
++<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
++<fontconfig>
++  <alias>
++    <family>monospace</family>
++    <prefer>
++      <family>Noto Sans Mono</family>
++    </prefer>
++  </alias>
++  <alias>
++    <family>Noto Sans Mono</family>
++    <default>
++      <family>monospace</family>
++    </default>
++  </alias>
++</fontconfig>
+diff --git a/66-noto-sans.conf b/66-noto-sans.conf
+new file mode 100644
+index 0000000..012aebe
+--- /dev/null
++++ b/66-noto-sans.conf
+@@ -0,0 +1,16 @@
++<?xml version="1.0"?>
++<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
++<fontconfig>
++  <alias>
++    <family>sans-serif</family>
++    <prefer>
++      <family>Noto Sans</family>
++    </prefer>
++  </alias>
++  <alias>
++    <family>Noto Sans</family>
++    <default>
++      <family>sans-serif</family>
++    </default>
++  </alias>
++</fontconfig>
+diff --git a/66-noto-serif.conf b/66-noto-serif.conf
+new file mode 100644
+index 0000000..036baf7
+--- /dev/null
++++ b/66-noto-serif.conf
+@@ -0,0 +1,16 @@
++<?xml version="1.0"?>
++<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
++<fontconfig>
++  <alias>
++    <family>serif</family>
++    <prefer>
++      <family>Noto Serif</family>
++    </prefer>
++  </alias>
++  <alias>
++    <family>Noto Serif</family>
++    <default>
++      <family>serif</family>
++    </default>
++  </alias>
++</fontconfig>
+-- 
+2.20.1
+
