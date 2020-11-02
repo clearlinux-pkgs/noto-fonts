@@ -4,7 +4,7 @@
 #
 Name     : noto-fonts
 Version  : 87a88abdee6cf193c8bb7c883376a23ba438251b
-Release  : 2
+Release  : 3
 URL      : https://github.com/googlefonts/noto-fonts/archive/87a88abdee6cf193c8bb7c883376a23ba438251b.tar.gz
 Source0  : https://github.com/googlefonts/noto-fonts/archive/87a88abdee6cf193c8bb7c883376a23ba438251b.tar.gz
 Summary  : No detailed summary available
@@ -38,6 +38,7 @@ license components for the noto-fonts package.
 
 %prep
 %setup -q -n noto-fonts-87a88abdee6cf193c8bb7c883376a23ba438251b
+cd %{_builddir}/noto-fonts-87a88abdee6cf193c8bb7c883376a23ba438251b
 %patch1 -p1
 %patch2 -p1
 
@@ -46,26 +47,26 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565282131
+export SOURCE_DATE_EPOCH=1604360453
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1565282131
+export SOURCE_DATE_EPOCH=1604360453
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/noto-fonts
-cp LICENSE %{buildroot}/usr/share/package-licenses/noto-fonts/LICENSE
-cp alpha/COPYING %{buildroot}/usr/share/package-licenses/noto-fonts/alpha_COPYING
-cp alpha/LICENSE %{buildroot}/usr/share/package-licenses/noto-fonts/alpha_LICENSE
-cp hinted/COPYING %{buildroot}/usr/share/package-licenses/noto-fonts/hinted_COPYING
-cp hinted/LICENSE %{buildroot}/usr/share/package-licenses/noto-fonts/hinted_LICENSE
-cp unhinted/COPYING %{buildroot}/usr/share/package-licenses/noto-fonts/unhinted_COPYING
-cp unhinted/LICENSE %{buildroot}/usr/share/package-licenses/noto-fonts/unhinted_LICENSE
+cp %{_builddir}/noto-fonts-87a88abdee6cf193c8bb7c883376a23ba438251b/LICENSE %{buildroot}/usr/share/package-licenses/noto-fonts/a675210122a9ed315584708779c097e7d277e1d4
+cp %{_builddir}/noto-fonts-87a88abdee6cf193c8bb7c883376a23ba438251b/alpha/COPYING %{buildroot}/usr/share/package-licenses/noto-fonts/a675210122a9ed315584708779c097e7d277e1d4
+cp %{_builddir}/noto-fonts-87a88abdee6cf193c8bb7c883376a23ba438251b/alpha/LICENSE %{buildroot}/usr/share/package-licenses/noto-fonts/a675210122a9ed315584708779c097e7d277e1d4
+cp %{_builddir}/noto-fonts-87a88abdee6cf193c8bb7c883376a23ba438251b/hinted/COPYING %{buildroot}/usr/share/package-licenses/noto-fonts/a675210122a9ed315584708779c097e7d277e1d4
+cp %{_builddir}/noto-fonts-87a88abdee6cf193c8bb7c883376a23ba438251b/hinted/LICENSE %{buildroot}/usr/share/package-licenses/noto-fonts/a675210122a9ed315584708779c097e7d277e1d4
+cp %{_builddir}/noto-fonts-87a88abdee6cf193c8bb7c883376a23ba438251b/unhinted/COPYING %{buildroot}/usr/share/package-licenses/noto-fonts/a675210122a9ed315584708779c097e7d277e1d4
+cp %{_builddir}/noto-fonts-87a88abdee6cf193c8bb7c883376a23ba438251b/unhinted/LICENSE %{buildroot}/usr/share/package-licenses/noto-fonts/a675210122a9ed315584708779c097e7d277e1d4
 %make_install
 
 %files
@@ -1920,10 +1921,4 @@ cp unhinted/LICENSE %{buildroot}/usr/share/package-licenses/noto-fonts/unhinted_
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/noto-fonts/LICENSE
-/usr/share/package-licenses/noto-fonts/alpha_COPYING
-/usr/share/package-licenses/noto-fonts/alpha_LICENSE
-/usr/share/package-licenses/noto-fonts/hinted_COPYING
-/usr/share/package-licenses/noto-fonts/hinted_LICENSE
-/usr/share/package-licenses/noto-fonts/unhinted_COPYING
-/usr/share/package-licenses/noto-fonts/unhinted_LICENSE
+/usr/share/package-licenses/noto-fonts/a675210122a9ed315584708779c097e7d277e1d4
